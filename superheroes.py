@@ -261,7 +261,7 @@ class Arena:
         This method should allow user to build team two.
         '''
         print('----------------------------------')
-        print('            Build Team Two')
+        print('          Build Team Two')
         print('----------------------------------')
         team_name = input('Please enter your second Superhero team name > ')
         team = Team(team_name)
@@ -269,10 +269,39 @@ class Arena:
         print('----------------------------------')
         print('     Build Team Two Abilities')
         print('----------------------------------')
+        team_building = True
+        while team_building:
+            hero_name = input('Please enter your Hero name > ')
+            hero = Hero(hero_name)
+            print(f'''Please pick {hero}'s abilities > ''')
+            abilities_building = True
+            while abilities_building:
+                ability_name = input('Please enter ability name > ')
+                attack_strength = input('Please enter attack strength > ')
+                ability = Ability(ability_name, attack_strength)
+                hero.add_ability(ability)
+                additional_abilities = input('Does your Hero have more abilities? y/n > ')
+                if additional_abiities.lower() == 'n':
+                    abilities_building = False
+                else:
+                    continue
 
         print('----------------------------------')
         print('     Build Team Two Armor')
         print('----------------------------------')
+        armor_building = True
+        while armor_building:
+            armor_name = input('Please enter Armor name > ')
+            armor_defense = input('Please enter Armor defense > ')
+            armor = Armor(armor_name, armor_defense)
+            hero.add_armor(armor)
+            additional_armor = input('Would you like to enter additional Armor? y/n > ')
+            if addional_armor.lower() == 'n':
+                armor_building = False
+            else:
+                team.add_hero(hero)
+
+        return team
 
     def team_battle(self):
         '''
