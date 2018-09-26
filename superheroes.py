@@ -51,7 +51,6 @@ class Hero:
         if self.health <= 0:
             self.deaths += 1
 
-
     def add_kill(self, num_kills):
         '''
         This method should add the number of kills to self.kills
@@ -210,15 +209,83 @@ class Arena:
         self.team_two = None
 
     def build_team_one(self):
-        pass
+        '''
+        This method should allow a user to build team one.
+        '''
+        print('----------------------------------')
+        print('            Build Team One')
+        print('----------------------------------')
+        team_name = input('Please enter your first Superhero team name > ')
+        team = Team(team_name)
+
+        print('----------------------------------')
+        print('     Build Team One Abilities')
+        print('----------------------------------')
+        team_building = True
+        while team_building:
+            hero_name = input('Please enter your Hero name > ')
+            hero = Hero(hero_name)
+            print(f'''Pick {hero}'s abilities > ''')
+            abilities_building = True
+            while abilities_building:
+                ability_name = input('Enter ability name > ')
+                attack_strength = input('Please enter attack strength > ')
+                ability = Ability(ability_name, attack_strength)
+                hero.add_ability(ability)
+                additional_abilities = input('Does your Hero have more abilities? y/n > ')
+                if additional_abiities.lower() == 'n':
+                    abilities_building = False
+                else:
+                    continue
+
+        print('----------------------------------')
+        print('     Build Team One Armor')
+        print('----------------------------------')
+
+        armor_building = True
+        while armor_building:
+            armor_name = input('Please enter Armor name > ')
+            armor_defense = input('Please enter Armor defense > ')
+            armor = Armor(armor_name, armor_defense)
+            hero.add_armor(armor)
+            additional_armor = input('Would you like to enter additional Armor? y/n > ')
+            if addional_armor.lower() == 'n':
+                armor_building = False
+            else:
+                team.add_hero(hero)
+
+        return team
 
     def build_team_two(self):
-        pass
+        '''
+        This method should allow user to build team two.
+        '''
+        print('----------------------------------')
+        print('            Build Team Two')
+        print('----------------------------------')
+        team_name = input('Please enter your second Superhero team name > ')
+        team = Team(team_name)
+
+        print('----------------------------------')
+        print('     Build Team Two Abilities')
+        print('----------------------------------')
+
+        print('----------------------------------')
+        print('     Build Team Two Armor')
+        print('----------------------------------')
 
     def team_battle(self):
+        '''
+        This method should continue to battle teams until
+        one or both teams are dead.
+        '''
         pass
 
     def show_stats(self):
+        '''
+        This method should print out the battle statistics
+        including each heroes kill/death ratio.
+        '''
         pass
 
 
