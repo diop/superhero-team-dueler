@@ -209,11 +209,8 @@ def test_find_empty_hero():
 
 
 def test_print_heroes():
-    # check that we instantiated the team correctly
     team = superheroes.Team("One")
-    # check that we instantiated the hero correctly
     jodie = superheroes.Hero("Jodie Foster")
-    # validating that the hero is actually getting into the team's list
     team.add_hero(jodie)
     athena = superheroes.Hero("Athena")
     team.add_hero(athena)
