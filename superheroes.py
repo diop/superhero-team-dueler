@@ -96,8 +96,6 @@ class Team:
 
     def add_hero(self, hero):
         '''Add Hero object to heroe's list.'''
-        # print the heroes list
-        # print the hero
         self.heroes.append(hero)
 
     def remove_hero(self, name):
@@ -215,7 +213,7 @@ class Arena:
         print('----------------------------------')
         print('            Build Team One')
         print('----------------------------------')
-        team_name = input('Please enter your first Superhero team name > ')
+        team_name = input('Please enter your first Superhero team name :> ')
         team = Team(team_name)
 
         print('----------------------------------')
@@ -223,17 +221,17 @@ class Arena:
         print('----------------------------------')
         team_building = True
         while team_building:
-            hero_name = input('Please enter your Hero name > ')
+            hero_name = input('Please enter your Hero name :> ')
             hero = Hero(hero_name)
-            print(f'Pick {hero} abilities > ')
+            print(f'Pick {hero} abilities :> ')
             abilities_building = True
             while abilities_building:
-                ability_name = input('Enter ability name > ')
-                attack_strength = input('Please enter attack strength > ')
+                ability_name = input('Enter ability name :> ')
+                attack_strength = input('Please enter attack strength :> ')
                 ability = Ability(ability_name, attack_strength)
                 hero.add_ability(ability)
-                additional_abilities = input('Does your Hero have more abilities? y/n > ')
-                if additional_abiities.lower() == 'n':
+                additional_abilities = input('Does your Hero have more abilities? Y or N :> ')
+                if additional_abilities.upper() == 'N':
                     abilities_building = False
                 else:
                     continue
@@ -244,12 +242,12 @@ class Arena:
 
         armor_building = True
         while armor_building:
-            armor_name = input('Please enter Armor name > ')
-            armor_defense = input('Please enter Armor defense > ')
+            armor_name = input('Please enter Armor name :> ')
+            armor_defense = input('Please enter Armor defense :> ')
             armor = Armor(armor_name, armor_defense)
             hero.add_armor(armor)
-            additional_armor = input('Would you like to enter additional Armor? y/n > ')
-            if addional_armor.lower() == 'n':
+            additional_armor = input('Would you like to enter additional Armor? Y or N :> ')
+            if addional_armor.upper() == 'N':
                 armor_building = False
             else:
                 team.add_hero(hero)
@@ -263,7 +261,7 @@ class Arena:
         print('----------------------------------')
         print('          Build Team Two')
         print('----------------------------------')
-        team_name = input('Please enter your second Superhero team name > ')
+        team_name = input('Please enter your second Superhero team name :> ')
         team = Team(team_name)
 
         print('----------------------------------')
@@ -271,17 +269,17 @@ class Arena:
         print('----------------------------------')
         team_building = True
         while team_building:
-            hero_name = input('Please enter your Hero name > ')
+            hero_name = input('Please enter your Hero name :> ')
             hero = Hero(hero_name)
-            print(f'Please pick {hero} abilities > ')
+            print(f'Please pick {hero} abilities :> ')
             abilities_building = True
             while abilities_building:
-                ability_name = input('Please enter ability name > ')
-                attack_strength = input('Please enter attack strength > ')
+                ability_name = input('Please enter ability name :> ')
+                attack_strength = input('Please enter attack strength :> ')
                 ability = Ability(ability_name, attack_strength)
                 hero.add_ability(ability)
-                additional_abilities = input('Does your Hero have more abilities? y/n > ')
-                if additional_abiities.lower() == 'n':
+                additional_abilities = input('Does your Hero have more abilities? Y or N :> ')
+                if additional_abilities.upper() == 'N':
                     abilities_building = False
                 else:
                     continue
@@ -291,12 +289,12 @@ class Arena:
         print('----------------------------------')
         armor_building = True
         while armor_building:
-            armor_name = input('Please enter Armor name > ')
-            armor_defense = input('Please enter Armor defense > ')
+            armor_name = input('Please enter Armor name :> ')
+            armor_defense = input('Please enter Armor defense :> ')
             armor = Armor(armor_name, armor_defense)
             hero.add_armor(armor)
-            additional_armor = input('Would you like to enter additional Armor? y/n > ')
-            if addional_armor.lower() == 'n':
+            additional_armor = input('Would you like to enter additional Armor? Y or N :> ')
+            if addional_armor.upper() == 'N':
                 armor_building = False
             else:
                 team.add_hero(hero)
@@ -323,8 +321,10 @@ class Arena:
         including each heroes kill/death ratio.
         '''
         print('Battle Stats:> ')
-        self.team_one.stats()
-        self.team_two.stats()
+        team_one_stats = self.team_one.stats()
+        team_two_stats = self.team_two.stats()
+        print(team_one_stats)
+        print(team_two_stats)
 
 
 if __name__ == '__main__':
@@ -341,10 +341,10 @@ if __name__ == '__main__':
 
         arena.team_battle()
         arena.show_stats()
-        play_again = input("Play Again? Y or N: ")
+        play_again = input('Play Again? Y or N :> ')
 
         #Check for Player Input
-        if play_again.lower() == "n":
+        if play_again.upper() == 'N':
             game_is_running = False
 
         else:
