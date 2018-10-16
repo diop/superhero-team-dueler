@@ -225,7 +225,7 @@ class Arena:
         while team_building:
             hero_name = input('Please enter your Hero name > ')
             hero = Hero(hero_name)
-            print(f'''Pick {hero}'s abilities > ''')
+            print(f'Pick {hero} abilities > ')
             abilities_building = True
             while abilities_building:
                 ability_name = input('Enter ability name > ')
@@ -273,7 +273,7 @@ class Arena:
         while team_building:
             hero_name = input('Please enter your Hero name > ')
             hero = Hero(hero_name)
-            print(f'''Please pick {hero}'s abilities > ''')
+            print(f'Please pick {hero} abilities > ')
             abilities_building = True
             while abilities_building:
                 ability_name = input('Please enter ability name > ')
@@ -308,14 +308,23 @@ class Arena:
         This method should continue to battle teams until
         one or both teams are dead.
         '''
-        pass
+        while len(self.team_one.heroes) != 0 and len(self.team_two.heroes):
+            self.team_one.attack(team_two)
+            self.team_two.attack(team_one)
+
+        if len(self.team_one.heroes) == 0:
+            winner = self.team_two.name
+        else:
+            winner = self.team_one.name
 
     def show_stats(self):
         '''
         This method should print out the battle statistics
         including each heroes kill/death ratio.
         '''
-        pass
+        print('Battle Stats:> ')
+        self.team_one.stats()
+        self.team_two.stats()
 
 
 if __name__ == '__main__':
